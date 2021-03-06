@@ -7,6 +7,7 @@ debian_ldflags:=$(shell dpkg-buildflags --get LDFLAGS) -fPIC
 
 FLAVOURS := core light extras
 DYN_MODS := \
+	brotli \
 	http-auth-pam \
 	http-cache-purge \
 	http-dav-ext \
@@ -114,6 +115,7 @@ extras_configure_flags := \
 			--with-stream_geoip_module=dynamic \
 			--with-stream_ssl_module \
 			--with-stream_ssl_preread_module \
+			--add-dynamic-module=$(MODULESDIR)/brotli \
 			--add-dynamic-module=$(MODULESDIR)/http-headers-more-filter \
 			--add-dynamic-module=$(MODULESDIR)/http-auth-pam \
 			--add-dynamic-module=$(MODULESDIR)/http-cache-purge \
