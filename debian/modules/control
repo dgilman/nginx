@@ -68,3 +68,6 @@ Homepage: https://github.com/arut/nginx-rtmp-module
 Files-Excluded: test
 Version: 1.2.1
 
+Module: brotli
+Homepage: https://github.com/google/ngx_brotli/tags
+Version: 1.0.0~rc
