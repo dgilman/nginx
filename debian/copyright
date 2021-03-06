@@ -37,6 +37,12 @@ Copyright: 2007-2009, Fabio Tranchitella <kobold@debian.org>
            2013-2016, Christos Trochalakis <ctrochalakis@debian.org>
 License: BSD-2-clause
 
+Files: debian/modules/brotli/*
+Copyright: 2002-2015 Igor Sysoev
+	   2011-2015 Nginx, Inc.
+	   2015-2019 Google Inc.
+License: BSD-2-clause
+
 Files: debian/modules/http-headers-more-filter/*
 Copyright: Copyright (c) 2009-2014, Yichun "agentzh" Zhang (章亦春) <agentzh@gmail.com>, CloudFlare Inc.
            Copyright (c) 2010-2013, Bernd Dorn

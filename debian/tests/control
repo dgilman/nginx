@@ -22,6 +22,7 @@ Tests: full-module-deps
 Restrictions: allow-stderr isolation-container
 Depends: nginx-full,
          curl,
+         libnginx-mod-brotli,
          libnginx-mod-http-auth-pam,
          libnginx-mod-http-cache-purge,
          libnginx-mod-http-dav-ext,
@@ -45,6 +46,7 @@ Tests: light-module-deps
 Restrictions: allow-stderr isolation-container
 Depends: nginx-light,
          curl,
+         libnginx-mod-brotli,
          libnginx-mod-http-auth-pam,
          libnginx-mod-http-cache-purge,
          libnginx-mod-http-dav-ext,
@@ -68,6 +70,7 @@ Tests: extras-module-deps
 Restrictions: allow-stderr isolation-container
 Depends: nginx-extras,
          curl,
+         libnginx-mod-brotli,
          libnginx-mod-http-auth-pam,
          libnginx-mod-http-cache-purge,
          libnginx-mod-http-dav-ext,

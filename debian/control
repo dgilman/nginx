@@ -5,6 +5,7 @@ Maintainer: Debian Nginx Maintainers <pkg-nginx-maintainers@alioth-lists.debian.
 Uploaders: Christos Trochalakis <ctrochalakis@debian.org>
 Build-Depends: debhelper (>= 10),
                dpkg-dev (>= 1.15.5),
+               libbrotli-dev,
                libexpat-dev,
                libgd-dev,
                libgeoip-dev,
@@ -68,6 +69,7 @@ Architecture: any
 Depends: libnginx-mod-http-auth-pam (= ${binary:Version}),
          libnginx-mod-http-dav-ext (= ${binary:Version}),
          libnginx-mod-http-echo (= ${binary:Version}),
+         libnginx-mod-brotli (= ${binary:Version}),
          libnginx-mod-http-geoip (= ${binary:Version}),
          libnginx-mod-http-image-filter (= ${binary:Version}),
          libnginx-mod-http-subs-filter (= ${binary:Version}),
@@ -134,7 +136,8 @@ Description: nginx web/proxy server (basic version)
 
 Package: nginx-extras
 Architecture: any
-Depends: libnginx-mod-http-auth-pam (= ${binary:Version}),
+Depends: libnginx-mod-brotli (= ${binary:Version}),
+         libnginx-mod-http-auth-pam (= ${binary:Version}),
          libnginx-mod-http-cache-purge (= ${binary:Version}),
          libnginx-mod-http-dav-ext (= ${binary:Version}),
          libnginx-mod-http-echo (= ${binary:Version}),
@@ -182,6 +185,15 @@ Description: nginx web/proxy server (extended version)
  THIRD PARTY MODULES: Auth PAM, Cache Purge, DAV Ext, Echo, Fancy Index,
  Headers More, Embedded Lua, HTTP Substitutions, Nchan, Upload Progress,
  Upstream Fair Queue.
+
+Package: libnginx-mod-brotli
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Brotli lossless compression support for Nginx
+ ngx_brotli is a set of two nginx modules:
+ .
+ - ngx_brotli filter module - used to compress responses on-the-fly,
+ - ngx_brotli static module - used to serve pre-compressed files.
 
 Package: libnginx-mod-http-geoip
 Architecture: any
