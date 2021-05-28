@@ -1,1 +1,2 @@
 discover-luajit-2.1.patch
+bugfix-prevented-request-smuggling-in-the-ngx.locati.patch

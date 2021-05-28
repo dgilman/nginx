@@ -1,4 +1,18 @@
-nginx (1.14.2-2+deb10u2) buster-security; urgency=high
+nginx (1.14.2-2+deb10u4) buster-security; urgency=medium
+
+  * CVE-2021-23017 (Closes: #989095)
+
+ -- Moritz Mühlenhoff <jmm@debian.org>  Fri, 28 May 2021 10:43:00 +0200
+
+nginx (1.14.2-2+deb10u3) buster-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * bugfix: prevented request smuggling in the ngx.location.capture API
+    (CVE-2020-11724) (Closes: #964950)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 24 Aug 2020 12:18:43 +0200
+
+nginx (1.14.2-2+deb10u2) buster; urgency=medium
 
   * Handle CVE-2019-20372, error page request smuggling
     (Closes: #948579)
