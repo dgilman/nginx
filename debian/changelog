@@ -4,7 +4,7 @@ nginx (1.18.0-6.1+deb11u2) bullseye; urgency=medium
     that adds mitigations into the Mail module for CVE-2021-3618.patch.
     (Closes: #991328)
 
- -- Jan Mojžíš <jan.mojzis@gmail.com>  Sat, 14 May 2022 08:27:08 +0200
+ -- David Gilman <davidgilman1@gmail.com>  Sat, 14 May 2022 08:27:08 +0200
 
 nginx (1.18.0-6.1+deb11u1) bullseye; urgency=medium
 
@@ -23,7 +23,7 @@ nginx (1.18.0-6.1) unstable; urgency=high
   [ Ondřej Surý ]
   * Add ngx_brotli 1.0.0rc module
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 29 May 2021 16:21:37 +0200
+ -- David Gilman <davidgilman1@gmail.com>  Sat, 29 May 2021 16:21:37 +0200
 
 nginx (1.18.0-6) unstable; urgency=medium
 

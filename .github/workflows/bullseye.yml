@@ -1,0 +1,40 @@
+name: build-bullseye
+on:
+  push:
+    branches:
+      - 'bullseye'
+  workflow_dispatch:
+jobs:
+  build-deb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        # actions/checkout doesn't support cloning multiple branches,
+        # so guess we'll just download everything!
+        with:
+          fetch-depth: 0
+      - name: add gpg signing secrets
+        shell: bash
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+        run: |
+          printf '%s\n' "$SIGNING_KEY" > "${GITHUB_WORKSPACE}/.github/signing_key"
+          gpg --import "${GITHUB_WORKSPACE}/.github/signing_key"
+      - name: make pristine-tar branch
+        run: |
+          git checkout pristine-tar
+          git checkout bullseye
+      - name: gbp
+        uses: dgilman/build-dpkg-bullseye@main
+      - name: create release
+        id: create-release
+        shell: bash
+        run: |
+          export DIST=${{ github.workspace }}/dist
+          export RELEASE_FILE=${{ github.workspace }}/.github/release.md
+          DSC=$(ls ${DIST}/*.dsc | head -1); PREFIXED=${DSC#[^_]*_}; export RELEASE_TAG="bullseye/${PREFIXED%.dsc}"
+          sed -i -e "s|##DISTRO##|bullseye|g" -e "s|##VERSION##|${PREFIXED%.dsc}|g" "${RELEASE_FILE}"
+          gh release create "${RELEASE_TAG}" "${DIST}/libnginx-mod-brotli"* -F "${RELEASE_FILE}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

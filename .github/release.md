@@ -1,0 +1,1 @@
+This is the libnginx-mod-brotli extension for Debian ##DISTRO##. To install, download libnginx-mod-brotli\_##VERSION##\_amd64.deb and install it with `sudo dpkg -i libnginx-mod-brotli_##VERSION##_amd64.deb`
