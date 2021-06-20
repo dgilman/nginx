@@ -1,9 +1,15 @@
+nginx (1.14.2-2+deb10u4) buster; urgency=medium
+
+  * Github actions
+
+ -- David Gilman <davidgilman1@gmail.com>  Sun, 20 Jun 2021 12:03:16 -0400
+
 nginx (1.14.2-2+deb10u3) buster; urgency=medium
 
   [ Ondřej Surý ]
   * Add ngx_brotli 1.0.0rc module
 
- -- David Gilman <david@debian>  Sat, 17 Apr 2021 18:51:58 -0400
+ -- David Gilman <davidgilman1@gmail.com>  Sat, 17 Apr 2021 18:51:58 -0400
 
 nginx (1.14.2-2+deb10u2) buster-security; urgency=high
 

@@ -1,0 +1,37 @@
+name: build-buster
+on:
+  push:
+    branches:
+      - 'buster'
+jobs:
+  build-deb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        # actions/checkout doesn't support cloning multiple branches,
+        # so guess we'll just download everything!
+        with:
+          fetch-depth: 0
+      - name: add gpg signing secrets
+        shell: bash
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+        run: |
+          printf '%s\n' "$SIGNING_KEY" > "${GITHUB_WORKSPACE}/.github/signing_key"
+          gpg --import "${GITHUB_WORKSPACE}/.github/signing_key"
+      - name: make pristine-tar branch
+        run: |
+          git checkout pristine-tar
+          git checkout buster
+      - name: gbp
+        uses: dgilman/build-dpkg-buster@master
+      - name: create release
+        id: create-release
+        shell: bash
+        run: |
+          export DIST=${{ github.workspace }}/dist
+          DSC=$(ls ${DIST}/*.dsc | head -1); PREFIXED=${DSC#[^_]*_}; export RELEASE_TAG="buster/${PREFIXED%.dsc}"
+          gh release create "${RELEASE_TAG}" "${DIST}/libnginx-mod-brotli"*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
