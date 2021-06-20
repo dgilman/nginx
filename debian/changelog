@@ -5,7 +5,7 @@ nginx (1.14.2-2+deb10u4) buster-security; urgency=medium
   [ Ondřej Surý ]
   * Add ngx_brotli 1.0.0rc module
 
- -- Moritz Mühlenhoff <jmm@debian.org>  Fri, 28 May 2021 10:43:00 +0200
+ -- David Gilman <davidgilman1@gmail.com>  Fri, 28 May 2021 10:43:00 +0200
 
 nginx (1.14.2-2+deb10u3) buster-security; urgency=high
 
